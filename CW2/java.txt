@@ -1,0 +1,321 @@
+Main.java:
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        Clinic clinic = new Clinic("Pet Clinic");
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("1. Add Pet\n2. Modify Pet\n3. Remove Pet\n4. List Pets\n5. Search Pet\n6. Clinic Report\n7. Exit");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter pet type (dog/cat): ");
+                    String type = scanner.nextLine();
+
+                    System.out.print("Name: ");
+                    String name = scanner.nextLine();
+                    System.out.print("Age: ");
+                    int age = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.print("Color: ");
+                    String color = scanner.nextLine();
+                    System.out.print("Weight: ");
+                    double weight = scanner.nextDouble();
+                    scanner.nextLine();
+                    System.out.print("Breed: ");
+                    String breed = scanner.nextLine();
+
+                    if (type.equalsIgnoreCase("dog"))
+                        clinic.addPet(new Dog(name, age, color, weight, breed));
+                    else if (type.equalsIgnoreCase("cat"))
+                        clinic.addPet(new Cat(name, age, color, weight, breed));
+                    break;
+
+                case 2:
+                    System.out.print("Enter pet name to modify: ");
+                    String modifyName = scanner.nextLine();
+                    clinic.modifyPet(modifyName, scanner);
+                    break;
+
+                case 3:
+                    System.out.print("Enter pet name to remove: ");
+                    String removeName = scanner.nextLine();
+                    clinic.removePet(removeName);
+                    break;
+
+                case 4:
+                    clinic.listPets();
+                    break;
+
+                case 5:
+                    System.out.print("Enter pet name or color to search: ");
+                    String search = scanner.nextLine();
+                    clinic.searchPet(search);
+                    break;
+
+                case 6:
+                    clinic.clinicReport();
+                    break;
+
+                case 7:
+                    clinic.saveToFile();
+                    System.exit(0);
+
+                default:
+                    System.out.println("Invalid choice.");
+            }
+        }
+    }
+}
+
+
+
+Clinic.java:
+import java.io.*;
+import java.util.*;
+
+class Clinic {
+    private List<Pet> pets = new ArrayList<>();
+    private String name;
+
+    public Clinic(String name) {
+        this.name = name;
+        loadFromFile();
+    }
+
+    public void addPet(Pet pet) {
+        pets.add(pet);
+    }
+
+    public void removePet(String name) {
+        pets.removeIf(p -> p.getName().equalsIgnoreCase(name));
+    }
+
+    public void listPets() {
+        for (Pet pet : pets) {
+            System.out.println(pet);
+        }
+    }
+
+    public void searchPet(String search) {
+        for (Pet pet : pets) {
+            if (pet.getName().equalsIgnoreCase(search) || pet.getColor().equalsIgnoreCase(search)) {
+                System.out.println(pet);
+                System.out.println(pet.speak());
+                return;
+            }
+        }
+        System.out.println("Pet not found.");
+    }
+
+    public void modifyPet(String name, Scanner scanner) {
+        for (Pet pet : pets) {
+            if (pet.getName().equalsIgnoreCase(name)) {
+                System.out.println("What would you like to modify?");
+                System.out.println("1. Name\n2. Age\n3. Color\n4. Weight\n5. Breed");
+                int choice = scanner.nextInt();
+                scanner.nextLine();
+
+                switch (choice) {
+                    case 1:
+                        System.out.print("Enter new name: ");
+                        pet.name = scanner.nextLine();
+                        break;
+                    case 2:
+                        System.out.print("Enter new age: ");
+                        pet.age = scanner.nextInt();
+                        scanner.nextLine();
+                        break;
+                    case 3:
+                        System.out.print("Enter new color: ");
+                        pet.color = scanner.nextLine();
+                        break;
+                    case 4:
+                        System.out.print("Enter new weight: ");
+                        pet.weight = scanner.nextDouble();
+                        scanner.nextLine();
+                        break;
+                    case 5:
+                        if (pet instanceof Dog) {
+                            System.out.print("Enter new breed: ");
+                            ((Dog) pet).setBreed(scanner.nextLine());
+                        } else if (pet instanceof Cat) {
+                            System.out.print("Enter new breed: ");
+                            ((Cat) pet).setBreed(scanner.nextLine());
+                        } else {
+                            System.out.println("Breed cannot be modified for this pet type.");
+                        }
+                        break;
+                    default:
+                        System.out.println("Invalid choice.");
+                }
+                System.out.println("Pet details updated.");
+                return;
+            }
+        }
+        System.out.println("Pet not found.");
+    }
+
+    public void clinicReport() {
+        int dogCount = 0;
+        int catCount = 0;
+        Map<String, Integer> colorCounts = new HashMap<>();
+        String dominantColor = "None";
+        int maxColorCount = 0;
+
+        for (Pet pet : pets) {
+            if (pet instanceof Dog) {
+                dogCount++;
+            } else if (pet instanceof Cat) {
+                catCount++;
+            }
+
+            String color = pet.getColor().toLowerCase();
+            colorCounts.put(color, colorCounts.getOrDefault(color, 0) + 1);
+            if (colorCounts.get(color) > maxColorCount) {
+                maxColorCount = colorCounts.get(color);
+                dominantColor = pet.getColor();
+            }
+        }
+
+        System.out.println("Clinic Report: " + name);
+        System.out.println("Total Dogs: " + dogCount);
+        System.out.println("Total Cats: " + catCount);
+        System.out.println("Dominant Color: " + dominantColor);
+    }
+
+
+    public void saveToFile() throws IOException {
+        BufferedWriter clinicWriter = new BufferedWriter(new FileWriter("ClinicDetails.txt"));
+        clinicWriter.write("Clinic Name: " + name + "\n");
+        clinicWriter.close();
+
+        BufferedWriter petWriter = new BufferedWriter(new FileWriter("PetDetails.txt"));
+        for (Pet pet : pets) {
+            if (pet instanceof Dog) {
+                petWriter.write("Dog, " + pet.getName() + ", " + pet.age + ", " + pet.getColor() + ", " + pet.weight + ", " + ((Dog) pet).getBreed() + "\n");
+            } else if (pet instanceof Cat) {
+                petWriter.write("Cat, " + pet.getName() + ", " + pet.age + ", " + pet.getColor() + ", " + pet.weight + ", " + ((Cat) pet).getBreed() + "\n");
+            }
+        }
+        petWriter.close();
+    }
+
+    public void loadFromFile() {
+        try (BufferedReader reader = new BufferedReader(new FileReader("PetDetails.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] data = line.split(", ");
+                if (data.length == 6) {
+                    String type = data[0];
+                    String name = data[1];
+                    int age = Integer.parseInt(data[2]);
+                    String color = data[3];
+                    double weight = Double.parseDouble(data[4]);
+                    String breed = data[5];
+                    if (type.equals("Dog")) {
+                        pets.add(new Dog(name, age, color, weight, breed));
+                    } else if (type.equals("Cat")) {
+                        pets.add(new Cat(name, age, color, weight, breed));
+                    }
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("No previous pet data found.");
+        }
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("ClinicDetails.txt"))) {
+            String line = reader.readLine();
+            if (line != null && line.startsWith("Clinic Name: ")) {
+                name = line.substring("Clinic Name: ".length());
+            }
+        } catch (IOException e) {
+            name = "Clinic Name";
+        }
+    }
+}
+
+
+Pet.java:
+class Pet {
+    protected String name;
+    protected int age;
+    protected String color;
+    protected double weight;
+
+    public Pet(String name, int age, String color, double weight) {
+        this.name = name;
+        this.age = age;
+        this.color = color;
+        this.weight = weight;
+    }
+
+    public String speak() {
+        return "I am a pet named " + name;
+    }
+
+    public String getName() { return name; }
+    public String getColor() { return color; }
+
+    public String toString() {
+        return name + ", Age: " + age + ", Color: " + color + ", Weight: " + weight + "kg";
+    }
+}
+
+Dog.java:
+class Dog extends Pet {
+    private String breed;
+
+    public Dog(String name, int age, String color, double weight, String breed) {
+        super(name, age, color, weight);
+        this.breed = breed;
+    }
+
+    public String speak() {
+        return "Woof! I am " + name + ", a " + age + " year old " + breed + " dog.";
+    }
+
+    public String toString() {
+        return super.toString() + ", Breed: " + breed;
+    }
+
+    public String getBreed() {
+        return breed;
+    }
+
+    public void setBreed(String breed) {
+        this.breed = breed;
+    }
+}
+
+
+Cat.java:
+class Cat extends Pet {
+    private String breed;
+
+    public Cat(String name, int age, String color, double weight, String breed) {
+        super(name, age, color, weight);
+        this.breed = breed;
+    }
+
+    public String speak() {
+        return "Meow! I am " + name + ", a " + age + " year old " + breed + " cat.";
+    }
+
+    public String toString() {
+        return super.toString() + ", Breed: " + breed;
+    }
+
+    public String getBreed() {
+        return breed;
+    }
+
+    public void setBreed(String breed) {
+        this.breed = breed;
+    }
+}

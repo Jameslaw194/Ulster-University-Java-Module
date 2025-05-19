@@ -1,0 +1,4 @@
+Clinic Name: Pet Clinic
+Total Dogs: 0
+Total Cats: 0
+Dominant colour: brown

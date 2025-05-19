@@ -1,0 +1,91 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko/20100101 Firefox/137.0" version="26.2.5">
+  <diagram name="Page-1" id="b3CRcskbdIkZXFiyhocw">
+    <mxGraphModel dx="2040" dy="1111" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="RkstQuLrBv7WiiSlIVKr-1" value="&lt;div&gt;Main&lt;/div&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;" parent="1" vertex="1">
+          <mxGeometry x="320" y="100" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RkstQuLrBv7WiiSlIVKr-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;labelBackgroundColor=none;" parent="RkstQuLrBv7WiiSlIVKr-1" vertex="1">
+          <mxGeometry y="26" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="RkstQuLrBv7WiiSlIVKr-4" value="+ main(args: String[]): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;" parent="RkstQuLrBv7WiiSlIVKr-1" vertex="1">
+          <mxGeometry y="34" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="RkstQuLrBv7WiiSlIVKr-5" value="Clinic" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;" parent="1" vertex="1">
+          <mxGeometry x="260" y="200" width="280" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="RkstQuLrBv7WiiSlIVKr-6" value="&lt;div&gt;- pets: List&amp;lt;Pet&amp;gt;&lt;/div&gt;&lt;div&gt;- name: String&lt;/div&gt;&lt;div&gt;- dominantColour: String&lt;/div&gt;&lt;div&gt;- dogCount: int&lt;/div&gt;&lt;div&gt;- catCount: int&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;" parent="RkstQuLrBv7WiiSlIVKr-5" vertex="1">
+          <mxGeometry y="26" width="280" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="RkstQuLrBv7WiiSlIVKr-7" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;labelBackgroundColor=none;" parent="RkstQuLrBv7WiiSlIVKr-5" vertex="1">
+          <mxGeometry y="110" width="280" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="RkstQuLrBv7WiiSlIVKr-8" value="&lt;div&gt;+ Clinic(name: String)&lt;/div&gt;&lt;div&gt;+ addPet(pet: Pet): void&lt;/div&gt;&lt;div&gt;+ removePet(name: String): void&lt;/div&gt;&lt;div&gt;+ listPets(): void&lt;/div&gt;&lt;div&gt;+ searchPet(search: String): void&lt;/div&gt;&lt;div&gt;+ modifyPet(name: String, scanner: Scanner): void&lt;/div&gt;&lt;div&gt;+ clinicReport(): void&lt;/div&gt;&lt;div&gt;+ saveToFile(): void&lt;/div&gt;&lt;div&gt;+ loadFromFile(): void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;" parent="RkstQuLrBv7WiiSlIVKr-5" vertex="1">
+          <mxGeometry y="118" width="280" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="RkstQuLrBv7WiiSlIVKr-9" value="Pet" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;" parent="1" vertex="1">
+          <mxGeometry x="230" y="520" width="340" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="RkstQuLrBv7WiiSlIVKr-10" value="# name: String&lt;div&gt;# age: int&lt;/div&gt;&lt;div&gt;# colour: String&lt;/div&gt;&lt;div&gt;# weight: double&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;" parent="RkstQuLrBv7WiiSlIVKr-9" vertex="1">
+          <mxGeometry y="26" width="340" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="RkstQuLrBv7WiiSlIVKr-11" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;labelBackgroundColor=none;" parent="RkstQuLrBv7WiiSlIVKr-9" vertex="1">
+          <mxGeometry y="90" width="340" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="RkstQuLrBv7WiiSlIVKr-12" value="&lt;div&gt;+ Pet(name: String, age: int, colour: String, weight: double)&lt;/div&gt;&lt;div&gt;+ speak(): String&lt;/div&gt;&lt;div&gt;+ getName(): String&lt;/div&gt;&lt;div&gt;+ getColour(): String&lt;/div&gt;&lt;div&gt;+ toString(): String&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;" parent="RkstQuLrBv7WiiSlIVKr-9" vertex="1">
+          <mxGeometry y="98" width="340" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="RkstQuLrBv7WiiSlIVKr-17" value="Cat" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;" parent="1" vertex="1">
+          <mxGeometry x="440" y="800" width="260" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="RkstQuLrBv7WiiSlIVKr-18" value="- breed: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;" parent="RkstQuLrBv7WiiSlIVKr-17" vertex="1">
+          <mxGeometry y="26" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="RkstQuLrBv7WiiSlIVKr-19" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;labelBackgroundColor=none;" parent="RkstQuLrBv7WiiSlIVKr-17" vertex="1">
+          <mxGeometry y="52" width="260" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="RkstQuLrBv7WiiSlIVKr-20" value="&lt;div&gt;+ Dog(name: String, age: int, color: String, weight: double, breed: String)&lt;/div&gt;&lt;div&gt;+ speak(): String&lt;/div&gt;&lt;div&gt;+ toString(): String&lt;br&gt;+ getBreed(): String&lt;/div&gt;&lt;div&gt;+ setBreed(breed: String): void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;" parent="RkstQuLrBv7WiiSlIVKr-17" vertex="1">
+          <mxGeometry y="60" width="260" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="RkstQuLrBv7WiiSlIVKr-21" value="Dog" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;" parent="1" vertex="1">
+          <mxGeometry x="100" y="800" width="260" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="RkstQuLrBv7WiiSlIVKr-22" value="- breed: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;" parent="RkstQuLrBv7WiiSlIVKr-21" vertex="1">
+          <mxGeometry y="26" width="260" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="RkstQuLrBv7WiiSlIVKr-23" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;labelBackgroundColor=none;" parent="RkstQuLrBv7WiiSlIVKr-21" vertex="1">
+          <mxGeometry y="52" width="260" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="RkstQuLrBv7WiiSlIVKr-24" value="&lt;div&gt;+ Dog(name: String, age: int, color: String, weight: double, breed: String)&lt;/div&gt;&lt;div&gt;+ speak(): String&lt;/div&gt;&lt;div&gt;+ toString(): String&lt;br&gt;+ getBreed(): String&lt;/div&gt;&lt;div&gt;+ setBreed(breed: String): void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;labelBackgroundColor=none;" parent="RkstQuLrBv7WiiSlIVKr-21" vertex="1">
+          <mxGeometry y="60" width="260" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="hWr8H_frG8juIGzf7I5C-2" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;labelBackgroundColor=none;fontColor=default;" edge="1" parent="1" source="RkstQuLrBv7WiiSlIVKr-8" target="RkstQuLrBv7WiiSlIVKr-9">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="330" y="500" as="sourcePoint" />
+            <mxPoint x="490" y="500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hWr8H_frG8juIGzf7I5C-4" value="" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;labelBackgroundColor=none;fontColor=default;" edge="1" parent="1" source="RkstQuLrBv7WiiSlIVKr-4" target="RkstQuLrBv7WiiSlIVKr-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="170" as="sourcePoint" />
+            <mxPoint x="210" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hWr8H_frG8juIGzf7I5C-5" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;labelBackgroundColor=none;fontColor=default;" edge="1" parent="1" source="RkstQuLrBv7WiiSlIVKr-12" target="RkstQuLrBv7WiiSlIVKr-21">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="400" y="720" as="sourcePoint" />
+            <mxPoint x="200" y="680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hWr8H_frG8juIGzf7I5C-7" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;labelBackgroundColor=none;fontColor=default;" edge="1" parent="1" target="RkstQuLrBv7WiiSlIVKr-17">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="400" y="700" as="sourcePoint" />
+            <mxPoint x="570" y="760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
